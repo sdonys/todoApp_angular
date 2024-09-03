@@ -1,54 +1,30 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ITodo} from "./ITodo";
 import {FormsModule} from "@angular/forms";
-
-const todos: ITodo[] = [
-  {
-    "id": 0,
-    "title": "Learn Angular",
-    "creationDate": "2024-08-05",
-    "isDone": true
-  },
-  {
-    "id": 1,
-    "title": "Learn Signal",
-    "creationDate": "2024-08-05",
-    "isDone": true
-  },
-  {
-    "id": 2,
-    "title": "Create a todo app",
-    "creationDate": "2024-08-06",
-    "isDone": false
-  },
-  {
-    "id": 3,
-    "title": "Play with my dog",
-    "creationDate": "2024-08-06",
-    "isDone": false
-  },
-  {
-    "id": 4,
-    "title": "Brew some coffee",
-    "creationDate": "2024-08-06",
-    "isDone": false
-  }
-]
+import {TodosService} from "./todos.service";
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [CommonModule, FormsModule,
-  ],
+  imports: [CommonModule, FormsModule],
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css']
 })
 
 export class todosComponent {
-  todos: ITodo[] = todos;
-
+  todos: ITodo[] = [];
+  todoService = inject(TodosService);
   newTodo: string = '';
+
+  ngOnInit() {
+    this.todoService.getTodos().subscribe(
+      todos => this.todos = todos,
+      error => console.error('Error fetching todos:', error)
+    );
+  }
+
+
 
   addTodo() {
     if (this.newTodo.trim()) {

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
 import {todosComponent} from "./todos/todos.component";
+import {provideHttpClient} from "@angular/common/http";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [provideHttpClient(),],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
