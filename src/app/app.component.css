@@ -4,7 +4,16 @@ nav {
 }
 .nav-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
 }
 a {
   color: white;
