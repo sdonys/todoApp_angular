@@ -1,0 +1,27 @@
+<h1> LIST </h1>
+
+<input [(ngModel)]="newTodo" (keyup.enter)="addTodo()">
+<button (click)="addTodo()">Add Todo</button>
+
+<h3>List</h3>
+<ul class="todo-list">
+  <li *ngFor="let todo of activeTodos">
+    <span>{{ todo.title }}</span>
+    <div class="todo-actions">
+      <button (click)="toggleTodo(todo)">Done</button>
+      <button (click)="removeTodo(todo.id)">Remove</button>
+    </div>
+  </li>
+</ul>
+
+<h3>Done</h3>
+<ul class="todo-list completed">
+  <li *ngFor="let todo of completedTodos">
+    <span>{{ todo.title }}</span>
+    <div class="todo-actions">
+      <button (click)="toggleTodo(todo)">Undo</button>
+      <button (click)="removeTodo(todo.id)">Remove</button>
+    </div>
+  </li>
+</ul>
+

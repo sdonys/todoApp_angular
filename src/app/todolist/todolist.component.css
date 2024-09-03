@@ -1,0 +1,56 @@
+.todo-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.add-todo {
+  display: flex;
+  margin-bottom: 20px;
+}
+.add-todo input {
+  flex-grow: 1;
+  padding: 5px;
+  font-size: 16px;
+}
+.add-todo button {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+.todo-list.completed li {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.todo-actions button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.todo-actions button:last-child {
+  background-color: #f44336;
+}
